@@ -47,7 +47,7 @@ def consultar_recetas_abecedario():
     abecedario = [chr(i) for i in range(ord('a'), ord('z') + 1)]
     
     print("=" * 70)
-    print("🤖 [RPA START] INICIANDO EXTRACCIÓN MASIVA DE THEMEALDB")
+    print("[RPA START] INICIANDO EXTRACCIÓN MASIVA DE THEMEALDB")
     print(f"[CONFIG] Ruta de Destino: {ruta_consolidado}")
     print("=" * 70)
     
@@ -79,7 +79,7 @@ def consultar_recetas_abecedario():
             id_meal = meal.get("idMeal")
             
             # Log estético alineado que verás impecable en la pantalla de Streamlit
-            print(f"    ⭐ [Plato] {nombre.ljust(30)} | Categoría: {categoria.ljust(12)} | Origen: {area}")
+            print(f"    [Plato] {nombre.ljust(30)} | Categoría: {categoria.ljust(12)} | Origen: {area}")
             
             todas_las_comidas.append({
                 "ID Registro": id_meal,
@@ -95,7 +95,7 @@ def consultar_recetas_abecedario():
         time.sleep(0.3)
 
     print("\n" + "=" * 70)
-    print("🤖 [PROCESO DE CONSOLIDACIÓN] Generando archivo de Excel con Pandas...")
+    print(" [PROCESO DE CONSOLIDACIÓN] Generando archivo de Excel con Pandas...")
     print("=" * 70)
     
     if todas_las_comidas:
@@ -112,9 +112,9 @@ def consultar_recetas_abecedario():
                 resumen_categorias.columns = ["Categoría", "Total Recetas Encontradas"]
                 resumen_categorias.to_excel(writer, sheet_name="Métricas por Categoría", index=False)
             
-            print(f"🥇 [RPA SUCCESS] ¡Proceso completado con éxito!")
-            print(f"📊 Total de platos extraídos y organizados: {len(df)}")
-            print(f"📂 Archivo Excel guardado en: {ruta_consolidado}")
+            print(f" [RPA SUCCESS] ¡Proceso completado con éxito!")
+            print(f" Total de platos extraídos y organizados: {len(df)}")
+            print(f" Archivo Excel guardado en: {ruta_consolidado}")
             print("=" * 70)
             
         except Exception as e:
