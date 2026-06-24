@@ -11,6 +11,9 @@ import pandas as pd
 from datetime import datetime
 from dotenv import load_dotenv
 
+if sys.platform == "win32":
+    sys.stdout.reconfigure(errors="replace")
+    sys.stderr.reconfigure(errors="replace")
 def consultar_recetas_abecedario():
     # 1. Cargar archivo local SOLO si existe (para tus pruebas en el escritorio)
     # En el Worker real, como este archivo no se sube a Git, se saltará esto automáticamente.
